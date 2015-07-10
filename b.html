@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form>
+<input type="text" name="q"><br>
+<input type="submit" value="submit">
+</form>
+<div>
+	{% for each in task_text %}
+		<li>{{ each.task_text }}</li>
+	{% endfor %}
+</div>
+</body>
+</html>
