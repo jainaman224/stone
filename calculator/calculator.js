@@ -8,8 +8,7 @@ function getCheckedRadioValue(radioGroupName) {
    for (i=0; i < rads.length; i++)
       if (rads[i].checked)
           return rads[i].value;
-   return null; // or undefined, or your preferred default for none checked
-}
+   return null;}
 
 var checkedValue = getCheckedRadioValue("mode");
 var b=parseInt(input.value);
