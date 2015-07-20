@@ -13,15 +13,13 @@ $(document).ready(function(){
     $('.ba').hide();
     $('.fd').fadeIn('fast');
   });
-  if ($('#11').is(":checked"))
-  {
+  $('.su').click(function(){
     compare();
   $('.hell').fadeIn('fast');
   $('.hello').fadeIn('fast');
   $('.hi').fadeIn('fast');
   $('.bye').fadeIn('fast');
-  
-  }
+  });
 });
 
 var run = 0;
@@ -32,38 +30,49 @@ function getCheckedRadioValue(radioGroupName) {
       if (rads[i].checked)
           return rads[i].value;
    return null;}
-	var compare=function (){
-  var checkedValue = getCheckedRadioValue("mode");
-  var userChoice = parseInt(checkedValue);
-  var choice1= userChoice;
-  var computerChoice = Math.random();
-  if (computerChoice < 0.21) {
-  computerChoice = 1;
-  } 
-  else if(computerChoice < 0.41) {
-    computerChoice = 2;
-  } 
-  else if(computerChoice < 0.61){
-    computerChoice = 3;
-  } 
-  else if(computerChoice < 0.81){
-    computerChoice = 4;
-  }
-  else{
-    computerChoice = 6;
-  }
-  document.getElementsByClassName('hell')[0].innerHTML="Your Choice : " + userChoice;
-  document.getElementsByClassName('hello')[0].innerHTML="Computer Choice : " + computerChoice;
-  var choice2 = computerChoice;
-  		if(choice1 === choice2){
-        return false;
-  		}
-		else {
-      run = run + choice1;
-      document.getElementsByClassName('bye')[0].innerHTML="Runs";
-      document.getElementsByClassName('.hi')[0].innerHTML=run;
-			return true;
-		}
-  }
+var compare=function (){
+var checkedValue = getCheckedRadioValue("mode");
+var userChoice = parseInt(checkedValue);
+var choice1= userChoice;
+var computerChoice = Math.random();
+if (computerChoice < 0.21) {
+computerChoice = 1;
+} 
+else if(computerChoice < 0.41) {
+  computerChoice = 2;
+} 
+else if(computerChoice < 0.61){
+  computerChoice = 3;
+} 
+else if(computerChoice < 0.81){
+  computerChoice = 4;
+}
+else{
+  computerChoice = 6;
+}
+document.getElementsByClassName('hell')[0].innerHTML="Your Choice : " + userChoice;
+document.getElementsByClassName('hello')[0].innerHTML="Computer Choice : " + computerChoice;
+var choice2 = computerChoice;
+	if(choice1 === choice2){
+    if ($('bat').click()){
+      document.getElementsByClassName('bye')[0].innerHTML="USER OUT on";
+    }
+    else {
+      document.getElementsByClassName('bye')[0].innerHTML="COMPUTER OUT on";
+    }
+    document.getElementsByClassName('hi')[0].innerHTML=run;
+    run=0;
+	}
+	else {
+    run = run + choice1;
+    if ($('bat').click()){
+      document.getElementsByClassName('bye')[0].innerHTML="USER";
+    }
+    else {
+      document.getElementsByClassName('bye')[0].innerHTML="COMPUTER";
+    }
+    document.getElementsByClassName('hi')[0].innerHTML=run;
+	}
+}
 
   
